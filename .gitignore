@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Build
+out/
+target/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml

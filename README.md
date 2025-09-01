@@ -1,24 +1,24 @@
 # Anagram
 P2P Video Chat for Android Devices
-<br>
 
 ## Build
-To run the video chat, specify your STUN and TURN servers in app/src/main/java/app/anagram/Config.java.
-<br>
-Then set ROLE = ClientRole.master and build the first APK for the caller.
-<br>
-After that, change ROLE to ClientRole.slave and build the second APK for the receiver.
-<br>
-<br>
+You need to build the JAR artifact of the signaling server.
 
 ## Run
-To start the video chat, share one of the built APK with the other party. If you plan to communicate with multiple users, give them the slave build and keep the master build for yourself.
-<br>
-The launch order of the app (master or slave build) does not matter.
-<br>
-To end the video chat and close the app, press the Back button in the bottom navigation bar.
-<br>
-<br>
+You can run the signaling server on your server either by executing:
+```bash
+java -jar anagram.jar
+```
+or using a Docker container:
+```bash
+docker run --detach \
+	--name anagram-ws \
+	--restart=always \
+	--publish 8888:8888 \
+	--volume YOUR_FOLDER_WITH_JAR:/app \
+	openjdk:18 \
+	java -jar /app/anagram.jar
+```
 
 ## License
 
